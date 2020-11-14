@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.ViewModelProviders
 import androidx.paging.PagedList
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.ydh.pagination.databinding.FragmentListBinding
@@ -22,17 +23,23 @@ class ListFragment : Fragment() {
     ): View? {
 
         val binding = DataBindingUtil.inflate<FragmentListBinding>(inflater, R.layout.fragment_list, container, false)
-        binding.rvListComment.layoutManager = LinearLayoutManager(context)
+        val myadapter = context?.let { UsersAdapter(it) }
+        binding.rvListComment.run {
+
+            layoutManager = LinearLayoutManager(context)
+            adapter = myadapter
+        }
 //        rv_list_comment.layoutManager = LinearLayoutManager(context)
 //        val adapter = context?.let { UsersAdapter(it) }
 //        rv_list_comment.adapter = adapter
 
-//        val userViewModel = ViewModelProviders.(this,UserViewModelFactory(context)).get(UserViewModel::class.java)
-//        userViewModel.getData().observe(this, object : Observer<PagedList<User>> {
-//            override fun onChanged(t: PagedList<User>?) {
-//                adapter.submitList(t)
-//            }
-//        })
+        val userViewModel = ViewModelProviders.of(this, UserViewModelFactory(this.context)).get(UserViewModel::class.java)
+//        val userViewModel = ViewModelProvider.(this,UserViewModelFactory(context)).get(UserViewModel::class.java)
+        userViewModel.getData().observe(viewLifecycleOwner, object : Observer<PagedList<UserModel>> {
+            override fun onChanged(t: PagedList<UserModel>?) {
+                myadapter?.submitList(t)
+            }
+        })
 
         return binding.root
 
