@@ -1,4 +1,4 @@
-package com.ydh.pagination
+package com.ydh.pagination.ui.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -7,13 +7,18 @@ import androidx.databinding.DataBindingUtil
 import androidx.paging.PagedListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import com.ydh.pagination.R
 import com.ydh.pagination.databinding.ItemUserBinding
+import com.ydh.pagination.model.UserModel
 
-class UsersAdapter(private val context: Context) : PagedListAdapter<UserModel, UsersAdapter.MyViewHolder>(USER_COMPARATOR) {
+class UsersAdapter(private val context: Context) : PagedListAdapter<UserModel, UsersAdapter.MyViewHolder>(
+    USER_COMPARATOR
+) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val inflater = LayoutInflater.from(context)
-        val binding: ItemUserBinding = DataBindingUtil.inflate(inflater, R.layout.item_user,parent,false)
+        val binding: ItemUserBinding = DataBindingUtil.inflate(inflater,
+            R.layout.item_user,parent,false)
         return MyViewHolder(binding)
     }
 

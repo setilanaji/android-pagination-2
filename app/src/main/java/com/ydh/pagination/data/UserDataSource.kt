@@ -1,9 +1,13 @@
-package com.ydh.pagination
+package com.ydh.pagination.data
 
 import android.content.Context
 import androidx.paging.PageKeyedDataSource
+import com.ydh.pagination.source.remote.ApiClient
+import com.ydh.pagination.source.UserResponse
+import com.ydh.pagination.Util
 import com.ydh.pagination.Util.isInternetAvailable
 import com.ydh.pagination.Util.showProgressBar
+import com.ydh.pagination.model.UserModel
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response

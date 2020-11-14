@@ -1,4 +1,4 @@
-package com.ydh.pagination
+package com.ydh.pagination.source.remote
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
@@ -30,7 +30,7 @@ object ApiClient {
             .build()
     }
 
-    val apiService :  ApiService by lazy{
+    val apiService : ApiService by lazy{
         retrofit.create(ApiService::class.java)
     }
 }

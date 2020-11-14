@@ -1,4 +1,4 @@
-package com.ydh.pagination
+package com.ydh.pagination.viewmodel
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
