@@ -39,7 +39,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintCircleRadius="30dp"
                     app:layout_constraintStart_toStartOf="parent"
-
+                    app:profileImage="@{user.avatarImgUrl}"
                     app:layout_constraintTop_toTopOf="parent"
                     tools:srcCompat="@tools:sample/backgrounds/scenic" />
 

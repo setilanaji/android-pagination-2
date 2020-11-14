@@ -28,7 +28,7 @@ class ListFragment : Fragment() {
         val binding = DataBindingUtil.inflate<FragmentListBinding>(inflater,
             R.layout.fragment_list, container, false)
         val myadapter = context?.let { UsersAdapter(it) }
-        binding.rvListComment.run {
+        binding.rvListUser.run {
 
             layoutManager = LinearLayoutManager(context)
             adapter = myadapter
